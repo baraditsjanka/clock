@@ -1,0 +1,84 @@
+/* programmed by: Baradits Janka & apr AKA dad :) */
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+.light { background-color: rgb(234, 233, 233); }
+.dark { background-color: rgb( 0, 0, 0 ); }
+.full-screen { }
+.clock-style-1, .clock-style-2, .clock-style-3 { }
+
+.content { position: absolute; width: 100%; height: 100%; }
+.clock-content { position: absolute; width: 100%; height: 100%; }
+
+.light-content, .dark-content { position: absolute; width: 100%; height: 100%; }
+.light .dark-content * { display: none; } 
+.dark .light-content * { display: none; }
+
+
+.logo1, .logo2 { position: absolute; top: 0.2em; left: 0.2em; height: 2.5em; z-index: 100; }
+.logo1 { display: block; }
+.logo2 { display: none; }
+
+.info { position: absolute; top: 0.2em; right: 2.5em; z-index: 100; cursor: pointer; }
+.info .info-icon-show { width: 2.5em; height: 2.5em; }
+.info .info-icon-hide { width: 2.5em; height: 2.5em; display: none; }
+.info .info-content { height: 8em; display: none; position: absolute; top: 2.9em; right: -1.7em; z-index: 101; }
+.info:hover .info-content { display: block;  }
+.info:hover .info-icon-show { display: none; }
+.info:hover .info-icon-hide { display: block; }
+
+.switch { position: absolute; width: 2.5em; height: 2.5em; top: 0.2em; right: 0.25em; z-index: 100; }
+.switch:hover { cursor: pointer; }
+.left-nav { position: absolute; width: 2.5em; height: 2.5em; top: 50%; left: 0; margin-top: -1.75em; z-index: 100; }
+.left-nav:hover { cursor: pointer; }
+.right-nav { position: absolute; width: 2.5em; height: 2.5em; top: 50%; right: 0; margin-top: -1.75em; z-index: 100; }
+.right-nav:hover { cursor: pointer; }
+
+.clock { position: absolute; height: 100%; width: 100%; }
+
+.clock-h { z-index: 1; animation: rotation 43200s infinite linear; }
+.clock-m { animation: rotation 3600s infinite linear; }
+.clock-s { animation: rotation 60s infinite linear; }
+
+.full-screen .logo1, 
+.full-screen .logo2, 
+.full-screen .switch, 
+.full-screen .left-nav, 
+.full-screen .right-nav, 
+.full-screen .info,
+.full-screen .dclock-format,
+.full-screen .dclock-sec { display: none; }
+
+.full-screen.clock-style-1 .content { height: 110%; width: 110%; left: -5%; top: -5%; }
+.full-screen.clock-style-2 .content { height: 110%; width: 110%; left: -5%; top: -8%; }
+
+.clock-style-2 .clock { top: -10%;  }
+
+.clock-style-2 .clock-s { left: 12vh; top: 28%;  }
+.full-screen.clock-style-2 .clock-s { left: 13.39vh; top: 28%; }
+
+ @keyframes rotation {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
+
+	}
+ }
+
+/*.full-screen.clock-style-3 .content { height: 105%; width: 105%; left: -2.5%; top: -2.5%; }*/
+
+.dclock-content { position: absolute; width: 100%; height: 26.5%; top: 37.5%; display: flex; flex-wrap: nowrap; justify-content: center; gap: 0.5%; }
+.dclock { display: inline-block; height: 100%; z-index: 1; }
+.dclock-d1 { margin-left: 0vh; }
+.dclock-d2 { margin-left: -5.5vh; }
+.dclock-d3 { margin-left: 2vh;  }
+.dclock-d4 { margin-left: -5.5vh; }
+.dclock-d5 { margin-left: 2vh; display: none; }
+.dclock-d6 { margin-left: -5.5vh; display: none; }
+/*.dclock-format, .dclock-sec { height: 3vh; z-index: 100; margin-left: 0.5vh; }*/
+.dclock-format { position: absolute; top: 0.2em; right: 7.9em; height: 2.5em; z-index: 100; cursor: pointer; } 
+.dclock-sec { position: absolute; top: 0.2em; right: 4.6em; height: 2.5em; z-index: 100; cursor: pointer; }
+.dclock-format:hover, .dclock-sec { cursor: pointer; }
+.dclock-sec { margin-left: -2.5vh; }
+
+.sec .dclock-d5, .sec .dclock-d6 { display: inherit; }
